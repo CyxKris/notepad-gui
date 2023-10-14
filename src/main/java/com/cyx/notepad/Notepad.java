@@ -21,6 +21,7 @@ public class Notepad extends JFrame {
         setIconImage(icon.getImage());
         setSize(1150, 650);
         setLocationRelativeTo(null);
+        setContentPane(new MainPanel());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
