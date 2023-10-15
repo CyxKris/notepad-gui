@@ -1,7 +1,14 @@
 package com.cyx.notepad;
 
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.function.BiConsumer;
+
 import javax.swing.*;
 
+import com.cyx.notepad.components.NotePanel;
 import com.cyx.notepad.components.TabMenu;
 
 import net.miginfocom.swing.MigLayout;
@@ -13,7 +20,40 @@ public class MainPanel extends JPanel {
     }
 
     public void init() {
-        setLayout(new MigLayout());
-        add(new TabMenu(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT));
+        setLayout(new MigLayout("wrap, fillx", "fill"));
+
+        TabMenu tabMenu = new TabMenu();
+        tabMenu.putClientProperty("JTabbedPane.tabType", "card");
+        tabMenu.putClientProperty("JTabbedPane.tabClosable", "true");
+        tabMenu.putClientProperty( "JTabbedPane.tabCloseCallback",
+            (BiConsumer<JTabbedPane, Integer>) (tabbedPane, tabIndex) -> {
+                    // close tab here
+                tabbedPane.remove(tabIndex);
+            }
+        );
+        tabMenu.putClientProperty("JTabbedPane.tabAreaAlignment", "fill");
+
+        JButton addButton = new JButton();
+        Icon addIcon = new ImageIcon("images/plus-icon.png");
+        addButton.setIcon(addIcon);
+        addButton.setBorder(null);
+        addButton.setContentAreaFilled(false);
+        setPreferredSize(new Dimension(30, 30));
+
+        addButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                addButtonActionPerformed(event);
+            }
+
+            private void addButtonActionPerformed(ActionEvent event) {
+                tabMenu.addTab("untitled", new NotePanel());
+                JComponent component = (JComponent) tabMenu.getTabComponentAt(tabMenu.getTabCount() - 1);
+                component.putClientProperty("JTabbedPane.tabClosable", "true");
+            }
+        });
+        
+        tabMenu.putClientProperty("JTabbedPane.trailingComponent", addButton);
+
+        add(tabMenu);
     }
 }

@@ -12,6 +12,8 @@ public class NotePanel extends JPanel {
 
     public void init() {
         setLayout(new MigLayout("wrap, fillx, insets 20", "fill"));
+        putClientProperty("JPanel.tabClosable", "true");
         add(new MenuBar());
+
     }
 }
