@@ -1,6 +1,5 @@
 package com.cyx.notepad;
 
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,7 +30,7 @@ public class MainPanel extends JPanel {
                 tabbedPane.remove(tabIndex);
             }
         );
-        tabMenu.putClientProperty("JTabbedPane.tabAreaAlignment", "fill");
+        // tabMenu.putClientProperty("JTabbedPane.tabAreaAlignment", "leading");
 
         JButton addButton = new JButton();
         Icon addIcon = new ImageIcon("images/plus-icon.png");
@@ -46,9 +45,9 @@ public class MainPanel extends JPanel {
             }
 
             private void addButtonActionPerformed(ActionEvent event) {
-                tabMenu.addTab("untitled", new NotePanel());
-                JComponent component = (JComponent) tabMenu.getTabComponentAt(tabMenu.getTabCount() - 1);
-                component.putClientProperty("JTabbedPane.tabClosable", "true");
+                tabMenu.addTab("Untitled", new NotePanel());
+                // JComponent component = (JComponent) tabMenu.getTabComponentAt(tabMenu.getTabCount() - 1);
+                // component.putClientProperty("JTabbedPane.tabClosable", "true");
             }
         });
         
