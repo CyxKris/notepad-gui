@@ -10,7 +10,7 @@ import javax.swing.JSeparator;
 import javax.swing.KeyStroke;
 
 public class EditMenu extends JMenu {
-    private JMenuItem cutItem, copyItem, pasteItem, selectAllItem;
+    private JMenuItem undoItem, cutItem, copyItem, pasteItem, selectAllItem;
 
     public EditMenu() {
         init();
@@ -18,6 +18,16 @@ public class EditMenu extends JMenu {
 
     public void init() {
         setText("Edit");
+
+
+        undoItem = new JMenuItem("Undo");
+        undoItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_DOWN_MASK));
+        undoItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                undoItemActionPerformed(evt);
+            }
+        });
+
 
         cutItem = new JMenuItem("Cut");
         cutItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.CTRL_DOWN_MASK));
@@ -62,15 +72,23 @@ public class EditMenu extends JMenu {
         add(selectAllItem);
     }
 
+    protected void undoItemActionPerformed(ActionEvent evt) {
+        // NotePanel.getInstance().editorPane
+    }
+
     protected void selectAllItemActionPerformed(ActionEvent evt) {
+        NotePanel.getInstance().editorPane.selectAll();
     }
 
     protected void copyItemActionPerformed(ActionEvent evt) {
+        NotePanel.getInstance().editorPane.copy();
     }
 
     protected void pasteItemActionPerformed(ActionEvent evt) {
+        NotePanel.getInstance().editorPane.paste();
     }
 
     protected void cutItemActionPerformed(ActionEvent evt) {
+        NotePanel.getInstance().editorPane.cut();
     }
 }

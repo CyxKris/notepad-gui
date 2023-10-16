@@ -21,7 +21,7 @@ public class TabMenu extends JTabbedPane {
         // setPreferredSize(new Dimension(30, 30));
 
         
-        addTab("Untitled", new NotePanel());
+        addTab("Untitled", NotePanel.getInstance());
         // setTabComponentAt(0, new NotePanel());
         // setC
         // setComponentAt(0, new NotePanel());

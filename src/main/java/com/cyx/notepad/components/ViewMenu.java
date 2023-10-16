@@ -53,6 +53,7 @@ public class ViewMenu extends JMenu {
     }
 
     protected void resetZoomActionPerformed(ActionEvent evt) {
+        // NotePanel.getInstance().editorPane.
     }
 
     protected void zoomOutActionPerformed(ActionEvent evt) {
