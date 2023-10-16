@@ -39,10 +39,11 @@
             <artifactId>flatlaf</artifactId>
             <version>3.2.1</version>
         </dependency>
+        <!-- ?flatlaf-extras -->
         <dependency>
             <groupId>com.formdev</groupId>
             <artifactId>flatlaf-extras</artifactId>
-            <version>3.2.1</version>
+            <version>3.2.2</version>
         </dependency>
         <!-- ?flatlaf fonts -->
         <dependency>
@@ -71,6 +72,12 @@
             <groupId>com.miglayout</groupId>
             <artifactId>miglayout-swing</artifactId>
             <version>11.1</version>
+        </dependency>
+        <!-- ?raven-toast -->
+        <dependency>
+            <groupId>raven</groupId>
+            <artifactId>raven.toast.Notifications</artifactId>
+            <version>1.0.1</version>
         </dependency>
     </dependencies>
 

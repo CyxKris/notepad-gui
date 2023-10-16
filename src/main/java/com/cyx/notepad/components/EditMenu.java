@@ -4,13 +4,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JSeparator;
-import javax.swing.KeyStroke;
+import javax.swing.*;
+// import javax.swing.text.Document;
+import javax.swing.undo.UndoManager;
+// import javax.swing.event.UndoableEditEvent;
+// import javax.swing.event.UndoableEditListener;
 
 public class EditMenu extends JMenu {
-    private JMenuItem undoItem, cutItem, copyItem, pasteItem, selectAllItem;
+    public static JMenuItem undoItem, cutItem, copyItem, pasteItem, selectAllItem;
+
+    // private Document document;
+    public UndoManager undoManager = new UndoManager();
+    // private UndoAction undoAction;
+    // private RedoAction redoAction;
+    
 
     public EditMenu() {
         init();
@@ -65,6 +72,8 @@ public class EditMenu extends JMenu {
         });
 
 
+        add(undoItem);
+        add(new JSeparator());
         add(cutItem);
         add(copyItem);
         add(pasteItem);
@@ -73,22 +82,50 @@ public class EditMenu extends JMenu {
     }
 
     protected void undoItemActionPerformed(ActionEvent evt) {
-        // NotePanel.getInstance().editorPane
+        try {
+            // NotePanel.getInstance().undoManager.undo();
+            // NotePanel.getInstance().editorPane.
+            // undoManager.undo();
+            NotePanel.undoManager.undo();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     protected void selectAllItemActionPerformed(ActionEvent evt) {
-        NotePanel.getInstance().editorPane.selectAll();
+        try {
+            // NotePanel.getInstance().editorPane.selectAll();
+            NotePanel.editorPane.selectAll();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     protected void copyItemActionPerformed(ActionEvent evt) {
-        NotePanel.getInstance().editorPane.copy();
+        try {
+            // NotePanel.getInstance().editorPane.copy();
+            NotePanel.editorPane.copy();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     protected void pasteItemActionPerformed(ActionEvent evt) {
-        NotePanel.getInstance().editorPane.paste();
+        try {
+            // NotePanel.getInstance().editorPane.paste();
+            NotePanel.editorPane.paste();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     protected void cutItemActionPerformed(ActionEvent evt) {
-        NotePanel.getInstance().editorPane.cut();
+        try {
+            // NotePanel.getInstance().editorPane.cut();
+            NotePanel.editorPane.cut();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }
