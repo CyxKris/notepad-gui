@@ -46,7 +46,6 @@ public class MainPanel extends JPanel {
 
             private void addButtonActionPerformed(ActionEvent event) {
                 tabMenu.addTab("Untitled", NotePanel.getInstance());
-                System.out.println("button clicked");
                 // JComponent component = (JComponent) tabMenu.getTabComponentAt(tabMenu.getTabCount() - 1);
                 // component.putClientProperty("JTabbedPane.tabClosable", "true");
             }

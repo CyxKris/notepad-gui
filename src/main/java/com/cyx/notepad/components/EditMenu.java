@@ -83,9 +83,6 @@ public class EditMenu extends JMenu {
 
     protected void undoItemActionPerformed(ActionEvent evt) {
         try {
-            // NotePanel.getInstance().undoManager.undo();
-            // NotePanel.getInstance().editorPane.
-            // undoManager.undo();
             NotePanel.undoManager.undo();
         } catch (Exception e) {
             System.out.println(e);

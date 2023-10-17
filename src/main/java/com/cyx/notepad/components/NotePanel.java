@@ -7,8 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.event.UndoableEditEvent;
-import javax.swing.event.UndoableEditListener;
+// import javax.swing.event.UndoableEditEvent;
+// import javax.swing.event.UndoableEditListener;
 // import javax.swing.undo.UndoManager;
 
 import com.cyx.notepad.UndoManager;
@@ -31,6 +31,7 @@ public class NotePanel extends JPanel {
     public void init() {
         setLayout(new MigLayout("wrap, fill", "fill"));
         putClientProperty("JPanel.tabClosable", "true");
+        
         add(new MenuBar());
 
         undoManager.addChangeListener(new ChangeListener() {

@@ -3,9 +3,12 @@ package com.cyx.notepad;
 import java.awt.*;
 import javax.swing.*;
 
+// import com.cyx.notepad.components.MenuBar;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.fonts.inter.FlatInterFont;
 import com.formdev.flatlaf.intellijthemes.FlatOneDarkIJTheme;
+
+import raven.toast.Notifications;
 
 public class Notepad extends JFrame {
     
@@ -20,9 +23,11 @@ public class Notepad extends JFrame {
         setTitle("Notepad");
         setIconImage(icon.getImage());
         setSize(1150, 650);
+        // setJMenuBar(new MenuBar());
         setLocationRelativeTo(null);
         setContentPane(new MainPanel());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        Notifications.getInstance().setJFrame(this);
         setVisible(true);
     }
 
